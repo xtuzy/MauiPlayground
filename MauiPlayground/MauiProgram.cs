@@ -1,4 +1,4 @@
-﻿using MauiPlayground.CustomControls.Hosting;
+﻿using MauiLib.CustomControls.Hosting;
 
 namespace MauiPlayground
 {

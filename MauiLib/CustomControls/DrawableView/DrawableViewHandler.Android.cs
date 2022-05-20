@@ -5,12 +5,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MauiPlayground.CustomControls.Platform;
+using MauiLib.CustomControls.Platform;
 using Android.Views;
 using APointF = Android.Graphics.PointF;
 using View = Android.Views.View;
 
-namespace MauiPlayground.CustomControls.DrawableView
+namespace MauiLib.CustomControls.DrawableView
 {
     public partial class DrawableViewHandler : ViewHandler<IDrawableView, PlatformDrawableView>
     {
@@ -43,7 +43,7 @@ namespace MauiPlayground.CustomControls.DrawableView
             nativeView.PlatformDraw -= OnDraw;
         }
 
-        #region Map Method
+#region Map Method
         public static void MapInvalidate(DrawableViewHandler handler, IDrawableView drawableView, object? arg)
         {
             handler.PlatformView?.Invalidate();
@@ -88,7 +88,7 @@ namespace MauiPlayground.CustomControls.DrawableView
         {
             VirtualView?.OnDraw(sender, e);
         }
-        #endregion
+#endregion
     }
 }
 #endif

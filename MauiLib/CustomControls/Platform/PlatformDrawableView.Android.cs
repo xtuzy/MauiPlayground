@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using View = Android.Views.View;
-namespace MauiPlayground.CustomControls.Platform
+namespace MauiLib.CustomControls.Platform
 {
 
     public class PlatformDrawableView : View

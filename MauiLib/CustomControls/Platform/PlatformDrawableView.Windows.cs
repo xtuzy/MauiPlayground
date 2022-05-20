@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MauiPlayground.CustomControls.Platform
+namespace MauiLib.CustomControls.Platform
 {
 
     public class PlatformDrawableView : UserControl

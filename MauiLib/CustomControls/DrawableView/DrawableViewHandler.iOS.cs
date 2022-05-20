@@ -1,6 +1,6 @@
 ﻿#if __IOS__ || __MACCATALYST__
 using Foundation;
-using MauiPlayground.CustomControls.Platform;
+using MauiLib.CustomControls.Platform;
 using Microsoft.Maui.Graphics.Platform;
 using Microsoft.Maui.Handlers;
 using System;
@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UIKit;
 
-namespace MauiPlayground.CustomControls.DrawableView
+namespace MauiLib.CustomControls.DrawableView
 {
     public class TouchEventArgs : EventArgs
     {

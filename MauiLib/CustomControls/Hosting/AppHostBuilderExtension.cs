@@ -1,6 +1,6 @@
-﻿using View = MauiPlayground.CustomControls.DrawableView.DrawableView;
-using ViewHandler = MauiPlayground.CustomControls.DrawableView.DrawableViewHandler;
-namespace MauiPlayground.CustomControls.Hosting
+﻿using View = MauiLib.CustomControls.DrawableView.DrawableView;
+using ViewHandler = MauiLib.CustomControls.DrawableView.DrawableViewHandler;
+namespace MauiLib.CustomControls.Hosting
 {
     public static class AppHostBuilderExtension
     {

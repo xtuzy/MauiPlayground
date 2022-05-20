@@ -2,7 +2,8 @@
 using CoreGraphics;
 using UIKit;
 #endif
-using MauiPlayground.CustomControls.DrawableView;
+using MauiLib.CustomControls.DrawableView;
+using MauiLib.CustomControls.Platform;
 
 namespace MauiPlayground
 {
@@ -18,7 +19,7 @@ namespace MauiPlayground
             drawableView.PaintSurface += DrawableView_PaintSurface;
         }
 
-        private void DrawableView_PaintSurface(object sender, CustomControls.Platform.PlatformDrawEventArgs e)
+        private void DrawableView_PaintSurface(object sender, PlatformDrawEventArgs e)
         {
 #if __ANDROID__
             var control = sender as Android.Views.View;
@@ -52,9 +53,10 @@ namespace MauiPlayground
 
 #elif WINDOWS
             var control = sender as Microsoft.Graphics.Canvas.UI.Xaml.CanvasControl;
-            var w = control.Width;
-            var h = control.Height;
+            var w = control.ActualWidth;
+            var h = control.ActualHeight;
             var args = e.PlatformDrawArgs as Microsoft.Graphics.Canvas.UI.Xaml.CanvasDrawEventArgs;
+            args.DrawingSession.DrawRectangle(0, 0, (float)w, (float)h, Windows.UI.Color.FromArgb(200, 100, 145, 50));
             args.DrawingSession.DrawText("Hello, World!", new System.Numerics.Vector2((float)(w / 2), (float)(h / 2)), Windows.UI.Color.FromArgb(255, 255, 255, 255));
 #endif
         }

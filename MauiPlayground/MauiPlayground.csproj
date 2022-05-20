@@ -52,4 +52,7 @@
     <PackageReference Include="SkiaSharp.Views.Maui.Controls" Version="2.88.0-preview.266" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MauiLib\MauiLib.csproj" />
+  </ItemGroup>
 </Project>

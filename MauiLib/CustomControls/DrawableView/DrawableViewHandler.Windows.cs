@@ -1,5 +1,5 @@
 ﻿#if WINDOWS
-using MauiPlayground.CustomControls.Platform;
+using MauiLib.CustomControls.Platform;
 using Microsoft.Maui.Handlers;
 using Microsoft.UI.Xaml.Input;
 using System;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MauiPlayground.CustomControls.DrawableView
+namespace MauiLib.CustomControls.DrawableView
 {
     public partial class DrawableViewHandler : ViewHandler<IDrawableView, PlatformDrawableView>
     {

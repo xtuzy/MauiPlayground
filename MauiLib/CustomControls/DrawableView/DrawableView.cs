@@ -1,11 +1,11 @@
-﻿using MauiPlayground.CustomControls.Platform;
+﻿using MauiLib.CustomControls.Platform;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MauiPlayground.CustomControls.DrawableView
+namespace MauiLib.CustomControls.DrawableView
 {
     public class DrawableView : ContentView, IDrawableView
     {
