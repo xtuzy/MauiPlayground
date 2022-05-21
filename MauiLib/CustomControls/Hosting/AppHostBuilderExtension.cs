@@ -1,5 +1,5 @@
-﻿using View = MauiLib.CustomControls.DrawableView.DrawableView;
-using ViewHandler = MauiLib.CustomControls.DrawableView.DrawableViewHandler;
+﻿using CpuView = MauiLib.CustomControls.DrawableView.DrawableView;
+using CpuViewHandler = MauiLib.CustomControls.DrawableView.DrawableViewHandler;
 namespace MauiLib.CustomControls.Hosting
 {
     public static class AppHostBuilderExtension
@@ -8,7 +8,7 @@ namespace MauiLib.CustomControls.Hosting
         {
             builder.ConfigureMauiHandlers(handlers =>
             {
-                handlers.AddTransient(typeof(View), typeof(ViewHandler));
+                handlers.AddTransient(typeof(CpuView), typeof(CpuViewHandler));
             });
 
             return builder;
