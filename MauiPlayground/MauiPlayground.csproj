@@ -55,4 +55,13 @@
   <ItemGroup>
     <ProjectReference Include="..\MauiLib\MauiLib.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <MauiXaml Update="Views\PlayAudioView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+    <MauiXaml Update="Views\ShowDrawableView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+  </ItemGroup>
 </Project>
