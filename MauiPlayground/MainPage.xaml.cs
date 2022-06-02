@@ -14,6 +14,12 @@ namespace MauiPlayground
             InitializeComponent();
 
         }
+        private void ListView_Clicked(object sender, EventArgs e)
+        {
+            stackLayout.RemoveAt(0);
+            stackLayout.Add(new ShowListView() { HeightRequest = 500 });
+        }
+
         private void DrawableView_Clicked(object sender, EventArgs e)
         {
             stackLayout.RemoveAt(0);
