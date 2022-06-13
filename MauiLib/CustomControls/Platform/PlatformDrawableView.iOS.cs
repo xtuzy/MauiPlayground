@@ -18,6 +18,14 @@ namespace MauiLib.CustomControls.Platform
             base.Draw(rect);
             PlatformDraw?.Invoke(this, new PlatformDrawEventArgs(rect));
         }
+
+        public event EventHandler<EventArgs> PlatformMeasure;
+        public override void LayoutSubviews()
+        {
+            PlatformMeasure?.Invoke(this, new EventArgs());
+            base.LayoutSubviews();
+        }
+
     }
 }
 #endif

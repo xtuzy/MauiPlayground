@@ -30,7 +30,12 @@ namespace MauiLib.CustomControls.DrawableView
             nativeView.ViewAttachedToWindow += OnViewAttachedToWindow;
             nativeView.ViewDetachedFromWindow += OnViewDetachedFromWindow;
             nativeView.Touch += OnTouch;
-            nativeView.PlatformDraw += OnDraw;
+            nativeView.PlatformMeasure += NativeView_PlatformMeasure;
+        }
+
+        private void NativeView_PlatformMeasure(object sender, EventArgs e)
+        {
+            VirtualView?.WhenMeasure(sender, e);
         }
 
         protected override void DisconnectHandler(PlatformDrawableView nativeView)
@@ -41,9 +46,10 @@ namespace MauiLib.CustomControls.DrawableView
             nativeView.ViewDetachedFromWindow -= OnViewDetachedFromWindow;
             nativeView.Touch -= OnTouch;
             nativeView.PlatformDraw -= OnDraw;
+            nativeView.PlatformMeasure -= NativeView_PlatformMeasure;
         }
 
-#region Map Method
+        #region Map Method
         public static void MapInvalidate(DrawableViewHandler handler, IDrawableView drawableView, object? arg)
         {
             handler.PlatformView?.Invalidate();
@@ -88,7 +94,7 @@ namespace MauiLib.CustomControls.DrawableView
         {
             VirtualView?.OnDraw(sender, e);
         }
-#endregion
+        #endregion
     }
 }
 #endif

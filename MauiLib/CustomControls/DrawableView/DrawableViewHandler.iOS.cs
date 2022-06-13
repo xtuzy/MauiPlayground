@@ -101,6 +101,12 @@ namespace MauiLib.CustomControls.DrawableView
             nativeView.TouchMove += OnTouchMove;
             nativeView.TouchUp += OnTouchUp;
             nativeView.PlatformDraw += OnDraw;
+            nativeView.PlatformMeasure += NativeView_PlatformMeasure;
+        }
+
+        private void NativeView_PlatformMeasure(object sender, EventArgs e)
+        {
+            VirtualView?.WhenMeasure(sender, e);
         }
 
         protected override void DisconnectHandler(TouchNativeDrawableView nativeView)
@@ -114,6 +120,7 @@ namespace MauiLib.CustomControls.DrawableView
             nativeView.TouchMove -= OnTouchMove;
             nativeView.TouchUp -= OnTouchUp;
             nativeView.PlatformDraw -= OnDraw;
+            nativeView.PlatformMeasure -= NativeView_PlatformMeasure;
         }
 
         public static void MapInvalidate(DrawableViewHandler handler, IDrawableView drawableView, object? arg)

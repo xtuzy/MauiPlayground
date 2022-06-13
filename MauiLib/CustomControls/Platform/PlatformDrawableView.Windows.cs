@@ -47,6 +47,13 @@ namespace MauiLib.CustomControls.Platform
         {
             PlatformDraw?.Invoke(sender, new PlatformDrawEventArgs(args));
         }
+
+        public event EventHandler<EventArgs> PlatformMeasure;
+        protected override Windows.Foundation.Size MeasureOverride(Windows.Foundation.Size availableSize)
+        {
+            PlatformMeasure?.Invoke(this, new EventArgs());
+            return base.MeasureOverride(availableSize);
+        }
     }
 }
 #endif

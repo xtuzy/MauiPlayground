@@ -25,7 +25,12 @@ namespace MauiLib.CustomControls.DrawableView
             nativeView.PointerMoved += OnPointerMoved;
             nativeView.PointerReleased += OnPointerReleased;
             nativeView.PointerCanceled += OnPointerCanceled;
-            nativeView.PlatformDraw += OnDraw;
+            nativeView.PlatformMeasure += NativeView_PlatformMeasure;
+        }
+
+        private void NativeView_PlatformMeasure(object sender, EventArgs e)
+        {
+            VirtualView?.WhenMeasure(sender, e);
         }
 
         protected override void DisconnectHandler(PlatformDrawableView nativeView)
@@ -37,6 +42,7 @@ namespace MauiLib.CustomControls.DrawableView
             nativeView.PointerReleased -= OnPointerReleased;
             nativeView.PointerCanceled -= OnPointerCanceled;
             nativeView.PlatformDraw -= OnDraw;
+            nativeView.PlatformMeasure -= NativeView_PlatformMeasure;
         }
 
         public static void MapInvalidate(DrawableViewHandler handler, IDrawableView drawableView, object? arg)

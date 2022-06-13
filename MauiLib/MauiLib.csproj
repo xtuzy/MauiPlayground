@@ -18,7 +18,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <Folder Include="CustomControls\DrawableGpuView\" />
+	  <PackageReference Include="SkiaSharp.Views.Maui.Controls" Version="2.88.1-preview.63" />
 	</ItemGroup>
 
 </Project>

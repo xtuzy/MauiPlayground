@@ -27,5 +27,6 @@ namespace MauiLib.CustomControls.DrawableView
         void OnTouchUp(Point point);
 
         void OnDraw(object? sender, PlatformDrawEventArgs e);
+        void WhenMeasure(object? sender, EventArgs e);
     }
 }

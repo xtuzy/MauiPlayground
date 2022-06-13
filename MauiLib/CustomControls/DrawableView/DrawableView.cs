@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MauiLib.CustomControls.DrawableView
 {
-    public class DrawableView : ContentView, IDrawableView
+    public class DrawableView : View, IDrawableView
     {
         /// <summary>
         /// <paramref name="sender"/>:
@@ -74,6 +74,11 @@ namespace MauiLib.CustomControls.DrawableView
         public virtual void OnDraw(object sender, PlatformDrawEventArgs e)
         {
             PaintSurface?.Invoke(sender, e);
+        }
+
+        public virtual void WhenMeasure(object sender, EventArgs e)
+        {
+
         }
     }
 }

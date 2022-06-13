@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="MauiPlayground.Views.ShowAnimationView.Views.DescriptionPane"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <Grid ColumnSpacing="0" RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <BoxView Grid.Row="1" Color="{StaticResource DarkBackground}" />
+        <Label
+            x:Name="Description"
+            Grid.Row="1"
+            FontSize="Large"
+            HorizontalTextAlignment="Center"
+            Text="This is where the detail text goes"
+            TextColor="{StaticResource LightText}" />
+    </Grid>
+</ContentView>

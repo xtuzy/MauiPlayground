@@ -1,4 +1,5 @@
 ﻿using MauiLib.CustomControls.Hosting;
+using SkiaSharp.Views.Maui.Controls.Hosting;
 
 namespace MauiPlayground
 {
@@ -10,6 +11,7 @@ namespace MauiPlayground
             builder
                 .UseMauiApp<App>()
                 .UseDrawableView()
+                .UseSkiaSharp()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

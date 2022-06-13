@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="MauiPlayground.Views.ShowAnimationView.Views.ExpandBar"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:constraint="clr-namespace:SharpConstraintLayout.Maui.Widget;assembly=SharpConstraintLayout.Maui">
+
+    <constraint:ConstraintLayout x:Name="layout">
+
+        <Label
+            x:Name="ExpandLabel"
+            Grid.Row="1"
+            HorizontalTextAlignment="Center"
+            Text="Tap for info"
+            TextColor="{StaticResource LightText}" />
+    </constraint:ConstraintLayout>
+</ContentView>
