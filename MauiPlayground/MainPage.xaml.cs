@@ -18,8 +18,8 @@ namespace MauiPlayground
         public MainPage()
         {
             InitializeComponent();
-
-            stackLayout.RemoveAt(0);
+            //horizontalLayout.Add(new Entry() { Text = "hello", HorizontalOptions = LayoutOptions.CenterAndExpand });
+            /*stackLayout.RemoveAt(0);
             var canvasView = new SKCanvasView();
             canvasView.PaintSurface += (sender, e) =>
             {
@@ -41,7 +41,7 @@ namespace MauiPlayground
 
             };
 
-            stackLayout.Add(canvasView);
+            stackLayout.Add(canvasView);*/
 
             using (var set = new FluentConstraintSet())
             {
@@ -53,6 +53,18 @@ namespace MauiPlayground
                     ;
                 set.ApplyTo(constraintLayout);
             }
+        }
+
+        private void ZIndexView_Clicked(object sender, EventArgs e)
+        {
+            stackLayout.RemoveAt(0);
+            stackLayout.Add(new ShowZIndexView() { });
+        }
+
+        private void ImageView_Clicked(object sender, EventArgs e)
+        {
+            stackLayout.RemoveAt(0);
+            stackLayout.Add(new ShowImageView() { });
         }
 
         private void CustomView_Clicked(object sender, EventArgs e)
@@ -82,6 +94,19 @@ namespace MauiPlayground
         {
             stackLayout.RemoveAt(0);
             stackLayout.Add(new PlayAudioView());
+        }
+
+        private void temp_Clicked(object sender, EventArgs e)
+        {
+            tempLayout.WidthRequest = 50;
+        }
+    }
+
+    class TempLayout : Frame
+    {
+        protected override Size MeasureOverride(double widthConstraint, double heightConstraint)
+        {
+            return base.MeasureOverride(widthConstraint, heightConstraint);
         }
     }
 }

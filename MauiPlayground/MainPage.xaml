@@ -3,42 +3,52 @@
     x:Class="MauiPlayground.MainPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:constraint="clr-namespace:SharpConstraintLayout.Maui.Widget;assembly=SharpConstraintLayout.Maui">
+    xmlns:constraint="clr-namespace:SharpConstraintLayout.Maui.Widget;assembly=SharpConstraintLayout.Maui"
+    xmlns:temp="clr-namespace:MauiPlayground">
 
     <constraint:ConstraintLayout x:Name="constraintLayout">
         <ScrollView x:Name="scrollView" Orientation="Horizontal">
-            <HorizontalStackLayout>
-                <Button
-                    Clicked="PlayAudio_Clicked"
-                    HorizontalOptions="Center"
-                    SemanticProperties.Hint="PlayAudioClicked"
-                    Text="PlayAudio" />
-                <Button
-                    Clicked="DrawableView_Clicked"
-                    HorizontalOptions="Center"
-                    Text="DrawableView" />
-                <Button
-                    Clicked="ListView_Clicked"
-                    HorizontalOptions="Center"
-                    Text="ListView" />
-                <Button
-                    Clicked="AnimationView_Clicked"
-                    HorizontalOptions="Center"
-                    Text="AnimationView" />
-                <Button
-                    Clicked="CustomView_Clicked"
-                    HorizontalOptions="Center"
-                    Text="CustomView" />
-            </HorizontalStackLayout>
+            <VerticalStackLayout>
+                <HorizontalStackLayout x:Name="horizontalLayout">
+                    <Button
+                        Clicked="PlayAudio_Clicked"
+                        HorizontalOptions="Center"
+                        SemanticProperties.Hint="PlayAudioClicked"
+                        Text="PlayAudio" />
+                    <Button
+                        Clicked="DrawableView_Clicked"
+                        HorizontalOptions="Center"
+                        Text="DrawableView" />
+                    <Button
+                        Clicked="ListView_Clicked"
+                        HorizontalOptions="Center"
+                        Text="ListView" />
+                    <Button
+                        Clicked="AnimationView_Clicked"
+                        HorizontalOptions="Center"
+                        Text="AnimationView" />
+                    <Button
+                        Clicked="CustomView_Clicked"
+                        HorizontalOptions="Center"
+                        Text="CustomView" />
+                    <Button
+                        Clicked="ImageView_Clicked"
+                        HorizontalOptions="Center"
+                        Text="ImageView" />
+                    <Button
+                        Clicked="ZIndexView_Clicked"
+                        HorizontalOptions="Center"
+                        Text="ZIndexView" />
+                </HorizontalStackLayout>
+
+            </VerticalStackLayout>
         </ScrollView>
 
         <Grid
             x:Name="stackLayout"
             Grid.Row="1"
             BackgroundColor="Brown">
-            <Frame BorderColor="Aqua">
-                <Label Text="Show Example" />
-            </Frame>
+            <temp:TempLayout x:Name="tempLayout" BorderColor="Aqua" />
         </Grid>
     </constraint:ConstraintLayout>
 </ContentPage>

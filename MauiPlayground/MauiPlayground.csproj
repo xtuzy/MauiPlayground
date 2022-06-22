@@ -50,7 +50,7 @@
 
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0-preview3" />
-    <PackageReference Include="SharpConstraintLayout.Maui" Version="2.1.1.5" />
+    <PackageReference Include="SharpConstraintLayout.Maui" Version="2.1.1.8" />
     <PackageReference Include="SkiaSharp.Views.Maui.Controls" Version="2.88.1-preview.63" />
   </ItemGroup>
 
@@ -80,7 +80,13 @@
     <MauiXaml Update="Views\ShowDrawableView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>
+    <MauiXaml Update="Views\ShowImageView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
     <MauiXaml Update="Views\ShowListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+    <MauiXaml Update="Views\ShowZIndexView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>
   </ItemGroup>
