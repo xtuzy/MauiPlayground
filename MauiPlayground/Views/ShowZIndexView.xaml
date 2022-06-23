@@ -5,7 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:constraint="clr-namespace:SharpConstraintLayout.Maui.Widget;assembly=SharpConstraintLayout.Maui">
     <constraint:ConstraintLayout x:Name="layout" BackgroundColor="AliceBlue">
-        <constraint:Guideline x:Name="guideline" />
+        <constraint:Guideline x:Name="guideline" ZIndex="1" />
         <Rectangle
             x:Name="box"
             BackgroundColor="Red"
@@ -30,13 +30,6 @@
             HeightRequest="200"
             WidthRequest="200"
             ZIndex="4">
-            <Rectangle.Shadow>
-                <Shadow
-                    Brush="Black"
-                    Opacity="0.8"
-                    Radius="40"
-                    Offset="40,40" />
-            </Rectangle.Shadow>
         </Rectangle>
     </constraint:ConstraintLayout>
 </ContentView>

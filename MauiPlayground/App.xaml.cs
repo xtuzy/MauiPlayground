@@ -1,4 +1,7 @@
-﻿namespace MauiPlayground
+﻿using MauiPlayground.Views;
+using ReloadPreview;
+
+namespace MauiPlayground
 {
     public partial class App : Application
     {
@@ -25,6 +28,17 @@
 #endif
             });
 
+            //页面预览
+            HotReload.Instance.Init("192.168.0.144");
+            HotReload.Instance.Reload += () =>
+            {
+                this.Dispatcher.Dispatch(() =>
+                {
+                    var view = HotReload.Instance.ReloadClass<MainPage>();
+                    Console.WriteLine(view is null);
+                    MainPage = view;
+                });
+            };
             MainPage = new AppShell();
         }
     }

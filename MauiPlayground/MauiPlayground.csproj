@@ -50,6 +50,7 @@
 
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0-preview3" />
+    <PackageReference Include="ReloadPreview" Version="3.0.6" />
     <PackageReference Include="SharpConstraintLayout.Maui" Version="2.1.1.8" />
     <PackageReference Include="SkiaSharp.Views.Maui.Controls" Version="2.88.1-preview.63" />
   </ItemGroup>

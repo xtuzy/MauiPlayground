@@ -6,7 +6,7 @@ using static SharpConstraintLayout.Maui.Widget.FluentConstraintSet;
 public partial class ShowZIndexView : ContentView
 {
     private FluentConstraintSet defaultSet;
-
+     
     public ShowZIndexView()
     {
         InitializeComponent();
@@ -30,6 +30,8 @@ public partial class ShowZIndexView : ContentView
 
     private void RightSwipeGesture_Swiped(object sender, SwipedEventArgs e)
     {
+        layout.AbortAnimation("cardOut");
+        //layout.AbortAnimation("cardIn");
         View secondView = null;
         foreach (var view in layout.Children)
         {
@@ -45,20 +47,24 @@ public partial class ShowZIndexView : ContentView
             {
                 child.RotateTo(-60);
                 var set = new FluentConstraintSet();
-
-                set.Clone(layout);
+                set.Clone(defaultSet);
                 set.Select(child).Clear().Width(200).Height(200).CenterYTo().RightToLeft(secondView).Rotation(-60)
                    ;
-                layout.LayoutToWithAnim(set, "swipecard", 16, 1000, Easing.Linear, (v, b) =>
+                layout.LayoutToWithAnim(set, "cardOut", 16, 500, Easing.SpringIn, (v, b) =>
                 {
+                    //ÐÞ¸ÄZ¸ß¶È
+                    foreach (var view1 in layout.Children)
+                        if(view1.ZIndex>1)
+                            (view1 as View).ZIndex = view1.ZIndex + 1;
                     child.ZIndex = 2;
-                    set.ApplyTo(layout);
-                    layout.LayoutToWithAnim(defaultSet, "default", 16, 1000, Easing.SpringOut,
-                    (v, b) => { defaultSet.ApplyTo(layout); });
+
+                    set.ApplyToForAnim(layout);
+                    
+                    layout.LayoutToWithAnim(defaultSet, "cardIn", 16, 1000, Easing.SpringOut,
+                    (v, b) => { 
+                        defaultSet.ApplyTo(layout); });
                 });
             }
-            else
-                child.ZIndex = child.ZIndex + 1;
         }
     }
 
