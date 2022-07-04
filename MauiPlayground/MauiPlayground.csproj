@@ -51,7 +51,7 @@
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0-preview3" />
     <PackageReference Include="ReloadPreview" Version="3.0.6" />
-    <PackageReference Include="SharpConstraintLayout.Maui" Version="2.1.1.8" />
+    <PackageReference Include="SharpConstraintLayout.Maui" Version="2.1.1.9" />
     <PackageReference Include="SkiaSharp.Views.Maui.Controls" Version="2.88.1-preview.63" />
   </ItemGroup>
 
@@ -60,34 +60,40 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Views\ShowAnimationView\ConstraintAnimationPage.xaml.cs">
+    <Compile Update="FlyoutMenuPage.xaml.cs">
+      <DependentUpon>FlyoutMenuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\AnimationView\ConstraintAnimationPage.xaml.cs">
       <DependentUpon>ConstraintAnimationPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <MauiXaml Update="Views\PlayAudioView.xaml">
+    <MauiXaml Update="FlyoutMenuPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>
-    <MauiXaml Update="Views\ShowAnimationView\ConstraintAnimationPage.xaml">
+    <MauiXaml Update="Pages\PlayAudioView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>
-    <MauiXaml Update="Views\ShowAnimationView\ShowAnimationView.xaml">
+    <MauiXaml Update="Pages\AnimationView\ConstraintAnimationPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>
-    <MauiXaml Update="Views\ShowCustomView\ShowCustomView.xaml">
+    <MauiXaml Update="Pages\ShowAnimationView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>
-    <MauiXaml Update="Views\ShowDrawableView.xaml">
+    <MauiXaml Update="Pages\ShowCustomView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>
-    <MauiXaml Update="Views\ShowImageView.xaml">
+    <MauiXaml Update="Pages\ShowDrawableView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>
-    <MauiXaml Update="Views\ShowListView.xaml">
+    <MauiXaml Update="Pages\ShowImageView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>
-    <MauiXaml Update="Views\ShowZIndexView.xaml">
+    <MauiXaml Update="Pages\ShowListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+    <MauiXaml Update="Pages\ShowZIndexView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>
   </ItemGroup>

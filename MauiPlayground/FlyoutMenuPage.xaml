@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiPlayground.FlyoutMenuPage"
+             xmlns:local="clr-namespace:MauiPlayground"
+             xmlns:page="clr-namespace:MauiPlayground.Pages"
+             Title="FlyoutMenuPage">
+    <VerticalStackLayout>
+        <ListView x:Name="listView" x:FieldModifier="public">
+            <ListView.ItemsSource>
+                <x:Array Type="{x:Type local:FlyoutItemPage}">
+                    <local:FlyoutItemPage Title="ShowAnimationView" TargetPage="{x:Type page:ShowAnimationView}"></local:FlyoutItemPage>
+                    <local:FlyoutItemPage Title="ShowCustomView" TargetPage="{x:Type page:ShowCustomView}"></local:FlyoutItemPage>
+                    <local:FlyoutItemPage Title="ShowDrawableView" TargetPage="{x:Type page:ShowDrawableView}"></local:FlyoutItemPage>
+                    <local:FlyoutItemPage Title="ShowImageView" TargetPage="{x:Type page:ShowImageView}"></local:FlyoutItemPage>
+                    <local:FlyoutItemPage Title="ShowListView" TargetPage="{x:Type page:ShowListView}"></local:FlyoutItemPage>
+                    <local:FlyoutItemPage Title="ShowZIndexView" TargetPage="{x:Type page:ShowZIndexView}"></local:FlyoutItemPage>
+                </x:Array>
+            </ListView.ItemsSource>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="33"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label VerticalOptions="Center" Grid.Column="1" Text="{Binding Title}"></Label>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,5 +1,4 @@
-﻿using MauiPlayground.Views;
-using ReloadPreview;
+﻿using ReloadPreview;
 
 namespace MauiPlayground
 {
@@ -39,7 +38,7 @@ namespace MauiPlayground
                     MainPage = view;
                 });
             };
-            MainPage = new AppShell();
+            MainPage = new MainPage();
         }
     }
 }
