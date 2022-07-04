@@ -24,7 +24,7 @@ namespace MauiPlayground
             {
                 Detail = new NavigationPage((Page)Activator.CreateInstance(item.TargetPage));
                 //flyout.listView.SelectedItem = null;
-                //IsPresented = false;
+                IsPresented = false;
             }
         }
     }

@@ -100,8 +100,8 @@ namespace MauiLib.CustomControls.DrawableView
             nativeView.TouchDown += OnTouchDown;
             nativeView.TouchMove += OnTouchMove;
             nativeView.TouchUp += OnTouchUp;
-            nativeView.PlatformDraw += OnDraw;
             nativeView.PlatformMeasure += NativeView_PlatformMeasure;
+            nativeView.PlatformDraw += OnDraw;
         }
 
         private void NativeView_PlatformMeasure(object sender, EventArgs e)

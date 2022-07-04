@@ -26,6 +26,7 @@ namespace MauiLib.CustomControls.DrawableView
             nativeView.PointerReleased += OnPointerReleased;
             nativeView.PointerCanceled += OnPointerCanceled;
             nativeView.PlatformMeasure += NativeView_PlatformMeasure;
+            nativeView.PlatformDraw += OnDraw;
         }
 
         private void NativeView_PlatformMeasure(object sender, EventArgs e)
