@@ -81,10 +81,19 @@
     <MauiXaml Update="Pages\ShowAnimationView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>
+    <MauiXaml Update="Pages\ShowBallsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+    <MauiXaml Update="Pages\ShowBoidsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
     <MauiXaml Update="Pages\ShowCustomView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>
     <MauiXaml Update="Pages\ShowDrawableView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+    <MauiXaml Update="Pages\ShowFireworkPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>
     <MauiXaml Update="Pages\ShowImageView.xaml">
@@ -96,5 +105,9 @@
     <MauiXaml Update="Pages\ShowZIndexView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Pages\Balls\" />
   </ItemGroup>
 </Project>

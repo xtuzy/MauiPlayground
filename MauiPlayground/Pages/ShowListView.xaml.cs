@@ -1,5 +1,6 @@
 
 using SharpConstraintLayout.Maui.Widget;
+using System.Diagnostics;
 using static SharpConstraintLayout.Maui.Widget.FluentConstraintSet;
 
 namespace MauiPlayground.Pages;
@@ -15,7 +16,7 @@ public partial class ShowListView : ContentPage
     ListViewViewModel listViewViewModel;
     void SetListView(ListView listView)
     {
-        var list = CreateData();
+       
 
         var dataTemplate = new DataTemplate(() =>
         {
@@ -26,9 +27,9 @@ public partial class ShowListView : ContentPage
             var image = new Image();
             image.SetBinding(Image.SourceProperty, nameof(MicrosoftNews.ImageUrl));
             var sourceFrom = new Label() { TextColor = Color.FromRgb(175, 165, 136), FontSize = 12, FontAttributes = FontAttributes.Bold };
-            sourceFrom.SetBinding(Label.TextProperty, nameof(MicrosoftNews.SourceForm));
+            sourceFrom.SetBinding(Label.TextProperty, nameof(MicrosoftNews.Index));
             var sourceFromeImage = new Image();
-            sourceFromeImage.SetBinding(Image.SourceProperty, nameof(MicrosoftNews.SourceForm));
+            sourceFromeImage.SetBinding(Image.SourceProperty, nameof(MicrosoftNews.SourceFormImageUrl));
             layout.AddElement(image, title, sourceFromeImage, sourceFrom);
 
             var guideLine = new Guideline() { };
@@ -42,7 +43,7 @@ public partial class ShowListView : ContentPage
             .Select(image).EdgesXTo().BottomToTop(guideLine)
             .Width(SizeBehavier.MatchParent).Height(SizeBehavier.WrapContent)
             .Select(sourceFromeImage).LeftToLeft(null, 20).BottomToTop(title, 20)
-            .Width(SizeBehavier.WrapContent).Height(SizeBehavier.WrapContent)
+            .Width(20).Height(20)
             .Select(sourceFrom).LeftToRight(sourceFromeImage, 20).CenterYTo(sourceFromeImage)
             .Select(title).LeftToLeft(null, 20).RightToRight(null, 20).BottomToBottom(null, 20).Width(SizeBehavier.MatchConstraint);
 
@@ -53,7 +54,7 @@ public partial class ShowListView : ContentPage
             .Select(image).RightToRight(null, 20).TopToTop(null, 20)
             .Width(140).Height(140)
             .Select(sourceFromeImage).LeftToLeft(null, 20).TopToTop(image)
-            .Width(SizeBehavier.WrapContent).Height(SizeBehavier.WrapContent)
+            .Width(20).Height(20)
             .Select(sourceFrom).LeftToRight(sourceFromeImage, 20).CenterYTo(sourceFromeImage)
             .Select(title).LeftToLeft(null, 20).RightToLeft(image, 20).TopToBottom(sourceFromeImage, 20).Width(SizeBehavier.MatchConstraint);
 
@@ -90,6 +91,7 @@ public partial class ShowListView : ContentPage
             return viewCell;
         });
 
+        var list = CreateData(1000);
         listView.ItemTemplate = dataTemplate;
         listViewViewModel = new ListViewViewModel() { News = list };
         this.BindingContext = listViewViewModel;
@@ -97,97 +99,68 @@ public partial class ShowListView : ContentPage
         listView.ItemsSource = listViewViewModel.News;
     }
 
-    List<MicrosoftNews> CreateData()
+    List<MicrosoftNews> CreateData(int count)
     {
-        var list = new List<MicrosoftNews>();
-        list.Add(new MicrosoftNews()
+        var sourceList = new List<MicrosoftNews>();
+        sourceList.Add(new MicrosoftNews()
         {
             Title = "央视 | 秘鲁北部发生长途客车坠崖事故 致至少11死34伤",
             ImageUrl = "https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AAXjc2n?w=300&h=174&q=60&m=6&f=jpg&u=t",
             SourceForm = "MSN",
             SourceFormImageUrl = "https://img-s-msn-com.akamaized.net/tenant/amp/entityid/BBVQ5Hs.img?w=36&h=36&q=60&m=6&f=png&u=t"
         });
-        list.Add(new MicrosoftNews()
+        sourceList.Add(new MicrosoftNews()
         {
             Title = "上海16个区当中15个区实现社会面清零",
             ImageUrl = "https://img-s-msn-com.akamaized.net/tenant/amp/entityid/BB19W3O1?w=300&h=174&q=60&m=6&f=jpg&u=t",
             SourceForm = "每日经济新闻",
             SourceFormImageUrl = "https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AAO4ppI.img?w=36&h=36&q=60&m=6&f=png&u=t"
         });
-        list.Add(new MicrosoftNews()
+        sourceList.Add(new MicrosoftNews()
         {
             Title = "袁隆平离开我们一年了",
             ImageUrl = "https://img-s-msn-com.akamaized.net/tenant/amp/entityid/BB19n8rU.img?w=406&h=304&q=90&m=6&f=jpg&x=2277&y=1318&u=t",
             SourceForm = "光明网",
             SourceFormImageUrl = "https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AARPRel.img?w=36&h=36&q=60&m=6&f=png&u=t"
         });
-        list.Add(new MicrosoftNews()
-        {
-            Title = "就Android应用支付系统 Match Group和Google达成临时妥协",
-            ImageUrl = "https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AAXxMr9.img?w=300&h=225&q=90&m=6&f=jpg&u=t",
-            SourceForm = "cnBeta",
-        });
-        list.Add(new MicrosoftNews()
-        {
-            Title = "央视 | 秘鲁北部发生长途客车坠崖事故 致至少11死34伤",
-            ImageUrl = "https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AAXjc2n?w=300&h=174&q=60&m=6&f=jpg&u=t",
-            SourceForm = "MSN",
-            SourceFormImageUrl = "https://img-s-msn-com.akamaized.net/tenant/amp/entityid/BBVQ5Hs.img?w=36&h=36&q=60&m=6&f=png&u=t"
-        });
-        list.Add(new MicrosoftNews()
-        {
-            Title = "上海16个区当中15个区实现社会面清零",
-            ImageUrl = "https://img-s-msn-com.akamaized.net/tenant/amp/entityid/BB19W3O1?w=300&h=174&q=60&m=6&f=jpg&u=t",
-            SourceForm = "每日经济新闻",
-            SourceFormImageUrl = "https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AAO4ppI.img?w=36&h=36&q=60&m=6&f=png&u=t"
-        });
-        list.Add(new MicrosoftNews()
-        {
-            Title = "袁隆平离开我们一年了",
-            ImageUrl = "https://img-s-msn-com.akamaized.net/tenant/amp/entityid/BB19n8rU.img?w=406&h=304&q=90&m=6&f=jpg&x=2277&y=1318&u=t",
-            SourceForm = "光明网",
-            SourceFormImageUrl = "https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AARPRel.img?w=36&h=36&q=60&m=6&f=png&u=t"
-        });
-        list.Add(new MicrosoftNews()
-        {
-            Title = "就Android应用支付系统 Match Group和Google达成临时妥协",
-            ImageUrl = "https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AAXxMr9.img?w=300&h=225&q=90&m=6&f=jpg&u=t",
-            SourceForm = "cnBeta",
-        });
-        list.Add(new MicrosoftNews()
-        {
-            Title = "央视 | 秘鲁北部发生长途客车坠崖事故 致至少11死34伤",
-            ImageUrl = "https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AAXjc2n?w=300&h=174&q=60&m=6&f=jpg&u=t",
-            SourceForm = "MSN",
-            SourceFormImageUrl = "https://img-s-msn-com.akamaized.net/tenant/amp/entityid/BBVQ5Hs.img?w=36&h=36&q=60&m=6&f=png&u=t"
-        });
-        list.Add(new MicrosoftNews()
-        {
-            Title = "上海16个区当中15个区实现社会面清零",
-            ImageUrl = "https://img-s-msn-com.akamaized.net/tenant/amp/entityid/BB19W3O1?w=300&h=174&q=60&m=6&f=jpg&u=t",
-            SourceForm = "每日经济新闻",
-            SourceFormImageUrl = "https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AAO4ppI.img?w=36&h=36&q=60&m=6&f=png&u=t"
-        });
-        list.Add(new MicrosoftNews()
-        {
-            Title = "袁隆平离开我们一年了",
-            ImageUrl = "https://img-s-msn-com.akamaized.net/tenant/amp/entityid/BB19n8rU.img?w=406&h=304&q=90&m=6&f=jpg&x=2277&y=1318&u=t",
-            SourceForm = "光明网",
-            SourceFormImageUrl = "https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AARPRel.img?w=36&h=36&q=60&m=6&f=png&u=t"
-        });
-        list.Add(new MicrosoftNews()
+        sourceList.Add(new MicrosoftNews()
         {
             Title = "就Android应用支付系统 Match Group和Google达成临时妥协",
             ImageUrl = "https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AAXxMr9.img?w=300&h=225&q=90&m=6&f=jpg&u=t",
             SourceForm = "cnBeta",
         });
 
+        var list = new List<MicrosoftNews>();
+        Random rnd = new Random();
+        for(var index = 0; index < count; index++)
+        {
+            var source = sourceList[rnd.Next(0,sourceList.Count-1)];
+            list.Add(new MicrosoftNews()
+            {
+                Index = index,
+                Title = source.Title,
+                ImageUrl = source.ImageUrl,
+                SourceForm = source.SourceForm,
+                SourceFormImageUrl = source.SourceFormImageUrl,
+            });
+        }
         return list;
     }
 }
 
 internal class MicrosoftNews
 {
+    int index;
+    public int Index
+    {
+        get 
+        {
+            //测试滑动列表时是否调用
+            Debug.WriteLine(index);
+            return index; 
+        }
+        set=>index = value;
+    }
     public string Title { get; set; }
     public string SourceForm { get; set; }
     public string SourceFormImageUrl { get; set; }
