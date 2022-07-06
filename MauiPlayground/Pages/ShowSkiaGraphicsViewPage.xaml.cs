@@ -51,14 +51,14 @@ public partial class ShowSkiaGraphicsViewPage : ContentPage
         void Render(ICanvas canvas)
         {
             if (BallField.Balls.Count == 0)
-                BallField.AddRandomBalls(1000);
+                BallField.AddRandomBalls(7000);
             BallField.StepForward();
 
-            canvas.StrokeColor = Colors.White;
             foreach (var ball in BallField.Balls)
             {
                 canvas.FillColor = ball.Color;
-                canvas.DrawArc((float)(ball.X - ball.R), (float)(ball.Y - ball.R), (float)(2 * ball.R), (float)(2 * ball.R), 0, (float)(2 * Math.PI), false, true);
+                //canvas.DrawArc((float)(ball.X - ball.R), (float)(ball.Y - ball.R), (float)(2 * ball.R), (float)(2 * ball.R), 0, (float)(2 * Math.PI), false, true);
+                canvas.FillCircle((float)ball.X, (float)ball.Y, (float)ball.R);
             }
         }
 

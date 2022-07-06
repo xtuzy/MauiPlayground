@@ -4,8 +4,11 @@ using Microsoft.Maui.Graphics.Win2D;
 /// 参考https://cloud.tencent.com/developer/article/1342784
 namespace MauiLib.GraphicExtension
 {
-    public class OffScreenContext:IDisposable
+    public class OffScreenContext : IDisposable
     {
+        public int Width;
+        public int Height;
+
         public CanvasRenderTarget OffScreen;
 
         CanvasDrawingSession session;
@@ -21,6 +24,9 @@ namespace MauiLib.GraphicExtension
 
         public OffScreenContext(int w, int h)
         {
+            Width = w;
+            Height = h;
+
             CanvasDevice device = CanvasDevice.GetSharedDevice();
             OffScreen = new CanvasRenderTarget(device, w, h, dpi: 96);
         }
@@ -43,7 +49,7 @@ namespace MauiLib.GraphicExtension
 
         public static void Draw(this ICanvas canvas, OffScreenContext context)
         {
-            if(canvas != null && context.OffScreen != null)
+            if (canvas != null && context.OffScreen != null)
                 (canvas as W2DCanvas)?.Session?.DrawImage(context.OffScreen);
         }
 

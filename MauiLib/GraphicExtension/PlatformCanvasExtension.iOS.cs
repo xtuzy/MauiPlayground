@@ -9,12 +9,18 @@ namespace MauiLib.GraphicExtension
 {
     public class OffScreenContext : IDisposable
     {
+        public int Width;
+        public int Height;
+
         public CGContext OffScreen;
 
         internal UIImage Image;
 
         public OffScreenContext(int w, int h)
         {
+            Width = w;
+            Height = h;
+
             var render = new UIGraphicsImageRenderer();
             OffScreen = UIGraphics.GetCurrentContext();
             //CGColorSpace colorSpace = CGColorSpace.CreateDeviceRGB();

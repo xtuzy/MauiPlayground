@@ -9,12 +9,19 @@ namespace MauiLib.GraphicExtension
 {
     public class OffScreenContext : IDisposable
     {
+        public int Width;
+        public int Height;
+
         public Bitmap OffScreen;
 
         internal Canvas Canvas;
         public OffScreenContext(int w, int h)
         {
+            Width = w;
+            Height = h;
+
             OffScreen = Bitmap.CreateBitmap(w, h, Bitmap.Config.Argb8888);
+
             Canvas = new Canvas(OffScreen);
         }
 

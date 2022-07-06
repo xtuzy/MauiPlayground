@@ -44,7 +44,7 @@ namespace BlazorCanvasTest2.Models
                         xVel: RandomVelocity(rand, minSpeed, maxSpeed),
                         yVel: RandomVelocity(rand, minSpeed, maxSpeed),
                         radius: radius,
-                        color: Color.FromInt(rand.Next(0xFFFFFF))
+                        color: Color.FromRgba(rand.Next(0,255), rand.Next(0, 255), rand.Next(0, 255), rand.Next(0, 255))
                     )
                 );
             }
