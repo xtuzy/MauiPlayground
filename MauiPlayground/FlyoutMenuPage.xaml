@@ -18,6 +18,7 @@
                     <local:FlyoutItemPage Title="ShowFireworkPage" TargetPage="{x:Type page:ShowFireworkPage}"></local:FlyoutItemPage>
                     <local:FlyoutItemPage Title="ShowBoidsPage" TargetPage="{x:Type page:ShowBoidsPage}"></local:FlyoutItemPage>
                     <local:FlyoutItemPage Title="ShowBollsPage" TargetPage="{x:Type page:ShowBallsPage}"></local:FlyoutItemPage>
+                    <local:FlyoutItemPage Title="ShowSkiaGraphicsViewPage" TargetPage="{x:Type page:ShowSkiaGraphicsViewPage}"></local:FlyoutItemPage>
                 </x:Array>
             </ListView.ItemsSource>
             <ListView.ItemTemplate>
