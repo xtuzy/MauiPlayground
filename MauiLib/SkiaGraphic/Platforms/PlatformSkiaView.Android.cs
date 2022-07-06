@@ -1,4 +1,5 @@
-﻿#if WINDOWS
+﻿#if __ANDROID__
+using Android.Content;
 using Microsoft.Maui.Graphics.Skia.Views;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ namespace MauiLib.SkiaGraphic.Platforms
 {
     public class PlatformSkiaView : Microsoft.Maui.Graphics.Skia.Views.SkiaGraphicsView
     {
-        public PlatformSkiaView(IDrawable drawable = null) : base(drawable)
+        public PlatformSkiaView(Context context,IDrawable drawable = null) : base(context,drawable)
         {
         }
     }

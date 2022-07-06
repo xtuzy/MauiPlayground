@@ -10,15 +10,15 @@ using PlatformView = System.Object;
 
 namespace MauiLib.SkiaGraphic
 {
-    public partial class SkiaGraphicsViewHandler : ISkiaGraphicsViewHandler
+    public partial class SkiaGraphicsViewHandler
     {
-        public static IPropertyMapper<ISkiaGraphicsView, ISkiaGraphicsViewHandler> Mapper = new PropertyMapper<ISkiaGraphicsView, ISkiaGraphicsViewHandler>(ViewHandler.ViewMapper)
+        public static IPropertyMapper<ISkiaGraphicsView, SkiaGraphicsViewHandler> Mapper = new PropertyMapper<ISkiaGraphicsView, SkiaGraphicsViewHandler>(ViewHandler.ViewMapper)
         {
             [nameof(ISkiaGraphicsView.Drawable)] = MapDrawable,
             [nameof(IView.FlowDirection)] = MapFlowDirection
         };
 
-        public static CommandMapper<ISkiaGraphicsView, ISkiaGraphicsViewHandler> CommandMapper = new(ViewCommandMapper)
+        public static CommandMapper<ISkiaGraphicsView, SkiaGraphicsViewHandler> CommandMapper = new(ViewCommandMapper)
         {
             [nameof(ISkiaGraphicsView.Invalidate)] = MapInvalidate
         };
@@ -31,10 +31,6 @@ namespace MauiLib.SkiaGraphic
             : base(mapper ?? Mapper, commandMapper ?? CommandMapper)
         {
         }
-
-        ISkiaGraphicsView ISkiaGraphicsViewHandler.VirtualView => VirtualView;
-
-        PlatformView ISkiaGraphicsViewHandler.PlatformView => PlatformView;
 
         protected override void ConnectHandler(PlatformView platformView)
         {

@@ -11,18 +11,18 @@ namespace MauiLib.SkiaGraphic
 	{
 		protected override PlatformSkiaView CreatePlatformView() => new(Context);
 
-		public static void MapDrawable(ISkiaGraphicsViewHandler handler, ISkiaGraphicsView graphicsView)
+		public static void MapDrawable(SkiaGraphicsViewHandler handler, ISkiaGraphicsView graphicsView)
 		{
 			handler.PlatformView?.UpdateDrawable(graphicsView);
 		}
 
-		public static void MapFlowDirection(ISkiaGraphicsViewHandler handler, ISkiaGraphicsView graphicsView)
+		public static void MapFlowDirection(SkiaGraphicsViewHandler handler, ISkiaGraphicsView graphicsView)
 		{
 			handler.PlatformView?.UpdateFlowDirection(graphicsView);
 			handler.PlatformView?.Invalidate();
 		}
 
-		public static void MapInvalidate(ISkiaGraphicsViewHandler handler, ISkiaGraphicsView graphicsView, object? arg)
+		public static void MapInvalidate(SkiaGraphicsViewHandler handler, ISkiaGraphicsView graphicsView, object? arg)
 		{
 			handler.PlatformView?.Invalidate();
 		}

@@ -27,7 +27,10 @@ public partial class ShowSkiaGraphicsViewPage : ContentPage
     private void timer1_Tick(object sender, System.Timers.ElapsedEventArgs e)
     {
         (skiaGraphicsView.Drawable as Drawable).FPSText = FPSText;
-        skiaGraphicsView.Invalidate();
+        skiaGraphicsView.Dispatcher.Dispatch(() =>
+        {
+            skiaGraphicsView.Invalidate();
+        });
     }
 
     protected override void OnSizeAllocated(double width, double height)
